@@ -24,7 +24,7 @@ spec:
     kind: Service
     name: {{ include "ibm-mq.fullname" . }}
   port:
-    targetPort: 9443
+    targetPort: 9080
   tls:
     termination: passthrough
 {{ end -}}

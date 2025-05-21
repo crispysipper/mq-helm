@@ -1,4 +1,4 @@
-# © Copyright IBM Corporation 2021, 2025
+# © Copyright IBM Corporation 2021, 2025 - BOILERPLATE
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -153,7 +153,7 @@ startupProbe:
   successThreshold: 1
   failureThreshold: 24
 
-# route section specified if any additional Kubernetes services or OpenShift Routes should be defined
+# route section specified if any additional Kubernetes services or OpenShift Routes should be defined 
 route:
     nodePort:
       webconsole: false
@@ -171,12 +171,13 @@ route:
       loadBalancerSourceRanges: []
     ingress:
       webconsole: 
-        enable: false
-        hostname: 
+        enable: true
+        hostname:
         path: /
         tls: 
-          enable: false 
+          enable: false
           secret: 
+        ingressClassName: alb
       annotations: {}
 
 # log section specifies settings for MQ error logs
@@ -202,10 +203,12 @@ topologySpreadConstraints: {}
 
 tolerations: []
 
-web: 
-  enabled:
+nodeSelector: {}
+web:
+  enable:
   manualConfig:
     configMap:
       name:
     secret:
       name:
+

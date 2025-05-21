@@ -19,10 +19,10 @@ kind: Ingress
 metadata:
   name: {{ include "ibm-mq.fullname" . }}-console-ingress
 #   Additional annotations to be added to the ingress annotations
-  {{- with .Values.route.ingress.annotations }}
   annotations:
+    {{- with .Values.route.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
-  {{- end }}    
+    {{- end }}    
   labels:
     {{- include "ibm-mq.labels" . | nindent 4 }}
 spec:
@@ -31,7 +31,7 @@ spec:
       name: {{ include "ibm-mq.fullname" . }}
       port:
         name: console-https
-  ingressClassName: nginx
+  ingressClassName: {{ .Values.route.ingress.webconsole.ingressClassName }}
   rules:
   {{- if .Values.route.ingress.webconsole.hostname }}
     - host: {{ .Values.route.ingress.webconsole.hostname }}

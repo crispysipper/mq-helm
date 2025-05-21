@@ -21,7 +21,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 9443
+  - port: 9080
     name: console-https
   selector:
 {{- include "ibm-mq.selectorLabels" . | nindent 4 }}

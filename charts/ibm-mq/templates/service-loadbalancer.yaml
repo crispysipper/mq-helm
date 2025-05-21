@@ -32,7 +32,7 @@ spec:
     name: qmgr
   {{- end }}
   {{- if .Values.route.loadBalancer.webconsole }}
-  - port: 9443
+  - port: 9080
     name: console-https
   {{- end }}
   {{- if .Values.route.loadBalancer.loadBalancerSourceRanges }}

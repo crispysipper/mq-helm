@@ -96,6 +96,10 @@ spec:
                 - {{ . }}
                 {{- end }}
               {{- end }}
+      nodeSelector:
+      {{- range $key, $value := .Values.nodeSelector }}
+        {{ $key }}: {{ $value | quote }}
+      {{- end }}
       {{- if .Values.topologySpreadConstraints }}
       topologySpreadConstraints: {{ toYaml .Values.topologySpreadConstraints | nindent 8 }}
       {{- end }}
@@ -337,7 +341,7 @@ spec:
           terminationMessagePath: "/run/termination-log"
           ports:
           - containerPort: 1414
-          - containerPort: 9443
+          - containerPort: 9080
           - containerPort: 9157
           {{- if .Values.queueManager.nativeha.enable }}
           - containerPort: 9414
@@ -695,3 +699,4 @@ spec:
         requests:
           storage: {{ .Values.persistence.qmPVC.size | quote }}
   {{- end }}
+

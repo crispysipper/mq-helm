@@ -1,16 +1,5 @@
-# © Copyright IBM Corporation 2021, 2025
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# CUSTOM HELM CHARTS SOURCED FROM https://ibm-messaging.github.io/mq-helm
+# INCLUDES TEMPLATING SUPPORT FOR CUSTOM INGRESS RESOURCES AND WORKLOAD ISOLATION
 apiVersion: v2
 name: ibm-mq
 description: IBM MQ queue manager
@@ -25,3 +14,6 @@ keywords:
   - message queue
   - Integration
 icon: https://raw.githubusercontent.com/IBM/charts/master/logo/ibm-mq-blue-icon.png
+maintainers:
+  - name: Chris Pazdersky
+    email: chris.pazdersky@ibm.com
